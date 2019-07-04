@@ -38,6 +38,7 @@ defaults:
 # These are the ordered category names
 categoryList:
   - Home
+  - Getting Started
   - Deploying Alluxio
   - Under Stores
   - Data Applications
@@ -55,6 +56,9 @@ categoryInfo:
   Home:
     en: Home
     cn: 用户指南
+  Getting Started:
+    en: Getting Started
+    cn: Getting Started
   Deploying Alluxio:
     en: Deploying Alluxio
     cn: 部署 Alluxio

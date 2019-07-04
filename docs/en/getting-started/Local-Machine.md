@@ -1,8 +1,8 @@
 ---
 layout: global
-title: Quick Start Guide
-group: Home
-priority: 3
+title: Local Machine Quick Start Guide
+group: Getting Started
+priority: 0
 ---
 
 * Table of Contents
