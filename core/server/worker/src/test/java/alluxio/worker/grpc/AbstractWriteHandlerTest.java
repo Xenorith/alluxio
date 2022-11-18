@@ -257,7 +257,7 @@ public abstract class AbstractWriteHandlerTest {
   protected DataBuffer newDataBuffer(int len) {
     byte[] buf = new byte[len];
     for (int i = 0; i < len; i++) {
-      byte value = (byte) (RANDOM.nextInt() % Byte.MAX_VALUE);
+      byte value = (byte) (RANDOM.nextInt(Byte.MAX_VALUE));
       buf[i] = value;
     }
     return new ByteArrayDataBuffer(buf, 0, len);
