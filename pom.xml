@@ -928,7 +928,8 @@
             <compilerArgs>
               <arg>-Xlint:none</arg>
               <arg>-XDcompilePolicy=simple</arg>
-              <arg>-Xplugin:ErrorProne</arg>
+              <!-- @GuardedBy has a collision between javax.annotation.concurrent.GuardedBy, used by FindBugs, and com.google.errorprone.annotations.concurrent.GuardedBy -->
+              <arg>-Xplugin:ErrorProne -Xep:GuardedBy:OFF</arg>
             </compilerArgs>
               <annotationProcessorPaths>
                 <path>
