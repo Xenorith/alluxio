@@ -94,7 +94,7 @@ public class EmulatingBlockIterator implements BlockIterator {
           "The low watermark of tier %s should not be negative, but is %s",
           Integer.toString(ordinal), tierLowWatermarkConf);
       Preconditions.checkArgument(tierLowWatermarkConf < tierHighWatermarkConf,
-          "The low watermark (%s) of tier %d should not be smaller than the high watermark (%s)",
+          "The low watermark (%s) of tier %s should not be smaller than the high watermark (%s)",
           tierLowWatermarkConf, ordinal, tierHighWatermarkConf);
       long reservedSpace = (long) (tierCapacity - tierCapacity * tierLowWatermarkConf);
       lastTierReservedBytes += reservedSpace;

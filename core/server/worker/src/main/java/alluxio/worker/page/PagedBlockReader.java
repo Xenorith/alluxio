@@ -62,7 +62,7 @@ public class PagedBlockReader extends BlockReader {
   public PagedBlockReader(CacheManager cacheManager, PagedBlockMeta blockMeta, long offset,
       Optional<PagedUfsBlockReader> ufsBlockReader, long pageSize) {
     Preconditions.checkArgument(offset >= 0 && offset <= blockMeta.getBlockSize(),
-        "Attempt to read block %d which is %d bytes long at invalid byte offset %d",
+        "Attempt to read block %s which is %s bytes long at invalid byte offset %s",
         blockMeta.getBlockId(), blockMeta.getBlockSize(), offset);
     mCacheManager = cacheManager;
     mUfsBlockReader = ufsBlockReader;
