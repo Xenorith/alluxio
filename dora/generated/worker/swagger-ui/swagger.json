@@ -1,0 +1,241 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The Alluxio Workers are processes which provide clients access to the data exposed by the Alluxio System.",
+    "version" : "v1",
+    "title" : "Alluxio Worker REST API Documentation"
+  },
+  "host" : "[Alluxio Worker Hostname]",
+  "basePath" : "/api/v1",
+  "tags" : [ {
+    "name" : "worker",
+    "description" : "Alluxio Worker Rest Service"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/worker/info" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "summary" : "Get general Alluxio Worker service information",
+        "description" : "",
+        "operationId" : "getInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "raw_configuration",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/AlluxioWorkerInfo"
+            }
+          }
+        }
+      }
+    },
+    "/worker/logLevel" : {
+      "post" : {
+        "tags" : [ "worker" ],
+        "operationId" : "logLevel",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "logName",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "level",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/worker/webui_blockinfo" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "operationId" : "getWebUIBlockInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "0"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "20"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/worker/webui_config" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "operationId" : "getWebUIConfiguration",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/worker/webui_init" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "operationId" : "getWebUIInit",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/worker/webui_logs" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "operationId" : "getWebUILogs",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "0"
+        }, {
+          "name" : "end",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "default" : "20"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/worker/webui_metrics" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "operationId" : "getWebUIMetrics",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/worker/webui_overview" : {
+      "get" : {
+        "tags" : [ "worker" ],
+        "operationId" : "getWebUIOverview",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AlluxioWorkerInfo" : {
+      "type" : "object",
+      "properties" : {
+        "capacity" : {
+          "$ref" : "#/definitions/Capacity"
+        },
+        "version" : {
+          "type" : "string"
+        },
+        "configuration" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "object"
+          }
+        },
+        "metrics" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        },
+        "tierPaths" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "tierCapacity" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "$ref" : "#/definitions/Capacity"
+          }
+        },
+        "rpcAddress" : {
+          "type" : "string"
+        },
+        "startTimeMs" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "uptimeMs" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "Capacity" : {
+      "type" : "object",
+      "properties" : {
+        "total" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "used" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    }
+  }
+}

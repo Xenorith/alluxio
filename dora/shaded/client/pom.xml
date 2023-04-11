@@ -15,7 +15,7 @@
   <parent>
     <groupId>org.alluxio</groupId>
     <artifactId>alluxio-shaded</artifactId>
-    <version>2.10.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>alluxio-shaded-client</artifactId>
   <packaging>jar</packaging>
@@ -334,8 +334,8 @@
               <goal>copy</goal>
             </goals>
             <configuration>
-              <sourceFile>target/alluxio-shaded-client-2.10.0-SNAPSHOT.jar</sourceFile>
-              <destinationFile>../../../client/alluxio-2.10.0-SNAPSHOT-client.jar</destinationFile>
+              <sourceFile>target/alluxio-shaded-client-3.0.0-SNAPSHOT.jar</sourceFile>
+              <destinationFile>../../../client/alluxio-3.0.0-SNAPSHOT-client.jar</destinationFile>
             </configuration>
           </execution>
         </executions>
