@@ -82,6 +82,14 @@ pluginModules:
     bundleWith:
       - default
       - fuse
+  ufs-hadoop-2.8:
+    moduleType: hdfs
+    enumName: hadoop-2.8
+    mavenArgs: "-pl dora/underfs/hdfs -Pufs-hadoop-2 -Dufs.hadoop.version=2.8.5 -PhdfsActiveSync"
+    generatedJarPath: "lib/alluxio-underfs-hdfs-2.8.5-${VERSION}.jar"
+    tarballJarPath: "lib/alluxio-underfs-hadoop-2.8-${VERSION}.jar"
+    bundleWith:
+      - hadoop28Only
   ufs-hadoop-2.10:
     moduleType: hdfs
     enumName: hadoop-2.10
