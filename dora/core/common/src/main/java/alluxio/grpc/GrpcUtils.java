@@ -308,7 +308,8 @@ public final class GrpcUtils {
         .setUsedBytes(workerInfo.getUsedBytes())
         .setUsedBytesOnTiers(workerInfo.getUsedBytesOnTiersMap())
         .setVersion(workerInfo.getBuildVersion().getVersion())
-        .setRevision(workerInfo.getBuildVersion().getRevision());
+        .setRevision(workerInfo.getBuildVersion().getRevision())
+        .setNumVCpu(workerInfo.getNumVCpu());
   }
 
   /**
@@ -561,7 +562,8 @@ public final class GrpcUtils {
         .putAllCapacityBytesOnTiers(workerInfo.getCapacityBytesOnTiers())
         .putAllUsedBytesOnTiers(workerInfo.getUsedBytesOnTiers())
         .setBuildVersion(BuildVersion.newBuilder().setVersion(workerInfo.getVersion())
-            .setRevision(workerInfo.getRevision()))
+        .setRevision(workerInfo.getRevision()))
+        .setNumVCpu(workerInfo.getNumVCpu())
         .build();
   }
 
